@@ -117,3 +117,4 @@ dist
 
 # Apple things
 .DS_Store
+build/

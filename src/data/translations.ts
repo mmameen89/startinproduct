@@ -57,10 +57,6 @@ export const translations = {
       followRoadmapDesc: "Work through the 6–9 month structured plan at your own pace.",
       getMentoring: "Get Mentoring",
       getMentoringDesc: "Book sessions for feedback, guidance, and career advice.",
-      whatStudentsSay: "What Students Say",
-      testimonial1: "The structured approach helped me go from complete beginner to landing my first PM role in 8 months. The mentoring sessions were invaluable.",
-      testimonial2: "The design path gave me exactly what I needed - real skills, a portfolio, and confidence. Highly recommend for anyone starting out.",
-      testimonial3: "I learned how to conduct proper user research and present insights that teams actually use. The roadmap kept me focused and motivated.",
       readyToStart: "Ready to Start Your Path?",
       readyToStartDesc: "Choose a learning path and take the first step toward your product career today.",
     },
@@ -79,6 +75,12 @@ export const translations = {
         learningPhases: "Learning Phases",
         curatedResources: "Curated Resources",
         comparePaths: "Compare All Career Paths",
+        phase: "Phase",
+        optional: "Optional",
+        goals: "Goals",
+        topics: "Topics Covered",
+        resources: "Key Resources",
+        weeklyTime: "Suggested Weekly Time:",
         filters: {
           all: "All",
           course: "Course",
@@ -86,7 +88,9 @@ export const translations = {
           video: "Video",
           tool: "Tool",
           book: "Book",
-          community: "Community"
+          community: "Community",
+          program: "Program",
+          platform: "Platform"
         }
       },
       pm: {
@@ -321,10 +325,6 @@ export const translations = {
       followRoadmapDesc: "أنجز خطوات الخطة المنظمة (6-9 شهور) وفق وتيرتك الخاصة.",
       getMentoring: "احصل على إرشاد",
       getMentoringDesc: "احجز جلسات مع خبراء للحصول على مراجعات وتوجيه مهني.",
-      whatStudentsSay: "قصص نجاح",
-      testimonial1: "الخطة المنظمة ساعدتني أنتقل من مبتدئة تماماً إلى أول وظيفة PM في 8 شهور. جلسات الإرشاد كانت نقطة التحول.",
-      testimonial2: "مسار التصميم منحني المهارات العملية وبورتفوليو قوي. أنصح به بشدة لأي شخص يبدأ من الصفر.",
-      testimonial3: "تعلمت كيفية إجراء أبحاث حقيقية وتقديم رؤى تؤثر في المنتج. الخريطة أبقتني على المسار الصحيح.",
       readyToStart: "جاهز للانطلاق؟",
       readyToStartDesc: "اختر مسارك التعليمي وابدأ أولى خطواتك في عالم المنتجات الرقمية اليوم.",
     },
@@ -343,6 +343,12 @@ export const translations = {
         learningPhases: "مراحل التعلم",
         curatedResources: "مصادر مختارة",
         comparePaths: "قارن بين المسارات",
+        phase: "مرحلة",
+        optional: "اختياري",
+        goals: "الأهداف",
+        topics: "المواضيع",
+        resources: "المصادر الأساسية",
+        weeklyTime: "الوقت الأسبوعي المقترح:",
         filters: {
           all: "الكل",
           course: "دورة تدريبية",
@@ -350,7 +356,9 @@ export const translations = {
           video: "فيديو",
           tool: "أداة",
           book: "كتاب",
-          community: "مجتمع"
+          community: "مجتمع",
+          program: "برنامج تدريبي",
+          platform: "منصة"
         }
       },
       pm: {

@@ -1,4 +1,4 @@
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ResourceCardProps {
   type: 'Course' | 'Article' | 'Video' | 'Tool' | 'Book' | 'Community';

@@ -1,9 +1,11 @@
-import { Calendar, Clock, TrendingUp, Award, ArrowDown } from 'lucide-react';
+import { Clock, TrendingUp, Award } from 'lucide-react';
 import { Button } from '../components/Button';
+import { PathHero } from '../components/PathHero';
 import { PhaseCard } from '../components/PhaseCard';
 import { CTASection } from '../components/CTASection';
 import { useLanguage } from '../context/LanguageContext';
 import { usePathsData } from '../hooks/usePathsData';
+import { PathNavigation } from '../components/PathNavigation';
 
 interface ProductManagementPathProps {
   onNavigate: (path: string) => void;
@@ -32,30 +34,19 @@ export function ProductManagementPath({ onNavigate }: ProductManagementPathProps
 
   return (
     <div className="min-h-screen pb-20" dir={dir}>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-8 flex flex-wrap gap-3">
-            <span className="bg-blue-100/50 backdrop-blur-sm text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full border border-blue-200/50">{t('paths.common.beginner')}</span>
-            <span className="bg-blue-100/50 backdrop-blur-sm text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full border border-blue-200/50">{t('paths.common.structuredRoadmap')}</span>
-            <span className="bg-blue-100/50 backdrop-blur-sm text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full border border-blue-200/50">{t('paths.common.mentorSupport')}</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">{t('paths.pm.title')}</h1>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl">
-            {t('paths.pm.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="primary" color="blue" size="lg" onClick={scrollToLearningPhases}>
-              <ArrowDown size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />
-              {t('paths.common.startPath')}
-            </Button>
-            <Button variant="outline" color="blue" size="lg" onClick={handleBookSession}>
-              <Calendar size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />
-              {t('common.bookMentorship')}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PathHero
+        title={t('paths.pm.title')}
+        subtitle={t('paths.pm.subtitle')}
+        color="blue"
+        badges={[
+          t('paths.common.beginner'),
+          t('paths.common.structuredRoadmap'),
+          t('paths.common.mentorSupport')
+        ]}
+        onStartPath={scrollToLearningPhases}
+        onBookSession={handleBookSession}
+        onNavigate={onNavigate}
+      />
 
       {/* Path Overview */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8">
@@ -107,15 +98,25 @@ export function ProductManagementPath({ onNavigate }: ProductManagementPathProps
       </section>
 
       {/* Timeline / Phases */}
+      {/* Timeline / Phases */}
       <section id="learning-phases" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-20 text-center tracking-tight">{t('paths.common.learningPhases')}</h2>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center tracking-tight">{t('paths.common.learningPhases')}</h2>
 
-          {/* Phases */}
-          <div className="space-y-16">
-            {phases.map((phase, index) => (
-              <PhaseCard key={index} {...phase} color="blue" />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Sidebar Navigation - Sticky */}
+            <div className="hidden lg:block lg:col-span-3 sticky top-32">
+              <PathNavigation phases={phases} />
+            </div>
+
+            {/* Phases Content */}
+            <div className="lg:col-span-9 space-y-16">
+              {phases.map((phase, index) => (
+                <div key={index} id={`phase-${phase.phaseNumber}`} className="scroll-mt-32">
+                  <PhaseCard {...phase} color="blue" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -127,7 +128,7 @@ export function ProductManagementPath({ onNavigate }: ProductManagementPathProps
           <p className="text-gray-600 mb-10 text-xl max-w-2xl mx-auto">
             {t('paths.pm.notSureDesc')}
           </p>
-          <Button variant="secondary" color="gray" onClick={() => onNavigate('/choose-your-path')}>
+          <Button variant="secondary" color="blue" onClick={() => onNavigate('/choose-your-path')} className="mx-auto">
             <span>{t('paths.common.comparePaths')}</span>
           </Button>
         </div>

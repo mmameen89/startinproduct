@@ -1,9 +1,11 @@
-import { Calendar, Clock, TrendingUp, Award, ArrowDown } from 'lucide-react';
+import { Clock, TrendingUp, Award } from 'lucide-react';
 import { Button } from '../components/Button';
+import { PathHero } from '../components/PathHero';
 import { PhaseCard } from '../components/PhaseCard';
 import { CTASection } from '../components/CTASection';
 import { useLanguage } from '../context/LanguageContext';
 import { usePathsData } from '../hooks/usePathsData';
+import { PathNavigation } from '../components/PathNavigation';
 
 interface UXWritingPathProps {
   onNavigate: (path: string) => void;
@@ -14,7 +16,7 @@ export function UXWritingPath({ onNavigate }: UXWritingPathProps) {
   const { data: pathsData, loading } = usePathsData();
 
   const handleBookSession = () => {
-    window.open('https://adplist.org/members/nada-elnady', '_blank', 'noopener,noreferrer');
+    window.open('https://adplist.org/mentors/mohamed-ameen-UjZr', '_blank', 'noopener,noreferrer');
   };
 
   const scrollToLearningPhases = () => {
@@ -32,30 +34,19 @@ export function UXWritingPath({ onNavigate }: UXWritingPathProps) {
 
   return (
     <div className="min-h-screen pb-20" dir={dir}>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-8 flex flex-wrap gap-3">
-            <span className="bg-rose-100/50 backdrop-blur-sm text-rose-700 text-sm font-medium px-4 py-1.5 rounded-full border border-rose-200/50">{t('paths.common.beginner')}</span>
-            <span className="bg-rose-100/50 backdrop-blur-sm text-rose-700 text-sm font-medium px-4 py-1.5 rounded-full border border-rose-200/50">{t('paths.common.structuredRoadmap')}</span>
-            <span className="bg-rose-100/50 backdrop-blur-sm text-rose-700 text-sm font-medium px-4 py-1.5 rounded-full border border-rose-200/50">{t('paths.common.mentorSupport')}</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">{t('paths.uw.title')}</h1>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl">
-            {t('paths.uw.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="primary" color="rose" size="lg" onClick={scrollToLearningPhases}>
-              <ArrowDown size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />
-              {t('paths.common.startPath')}
-            </Button>
-            <Button variant="outline" color="rose" size="lg" onClick={handleBookSession}>
-              <Calendar size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />
-              {t('common.bookMentorship')}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PathHero
+        title={t('paths.uw.title')}
+        subtitle={t('paths.uw.subtitle')}
+        color="rose"
+        badges={[
+          t('paths.common.beginner'),
+          t('paths.common.structuredRoadmap'),
+          t('paths.common.mentorSupport')
+        ]}
+        onStartPath={scrollToLearningPhases}
+        onBookSession={handleBookSession}
+        onNavigate={onNavigate}
+      />
 
       {/* Path Overview */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8">
@@ -107,15 +98,25 @@ export function UXWritingPath({ onNavigate }: UXWritingPathProps) {
       </section>
 
       {/* Timeline / Phases */}
+      {/* Timeline / Phases */}
       <section id="learning-phases" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-20 text-center tracking-tight">{t('paths.common.learningPhases')}</h2>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center tracking-tight">{t('paths.common.learningPhases')}</h2>
 
-          {/* Phases */}
-          <div className="space-y-16">
-            {phases.map((phase, index) => (
-              <PhaseCard key={index} {...phase} color="rose" />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Sidebar Navigation - Sticky */}
+            <div className="hidden lg:block lg:col-span-3 sticky top-32">
+              <PathNavigation phases={phases} />
+            </div>
+
+            {/* Phases Content */}
+            <div className="lg:col-span-9 space-y-16">
+              {phases.map((phase, index) => (
+                <div key={index} id={`phase-${phase.phaseNumber}`} className="scroll-mt-32">
+                  <PhaseCard key={index} {...phase} color="rose" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -127,7 +128,7 @@ export function UXWritingPath({ onNavigate }: UXWritingPathProps) {
           <p className="text-gray-600 mb-10 text-xl max-w-2xl mx-auto">
             {t('paths.uw.notSureDesc')}
           </p>
-          <Button variant="secondary" color="gray" onClick={() => onNavigate('/choose-your-path')}>
+          <Button variant="secondary" color="blue" onClick={() => onNavigate('/choose-your-path')} className="mx-auto">
             <span>{t('paths.common.comparePaths')}</span>
           </Button>
         </div>

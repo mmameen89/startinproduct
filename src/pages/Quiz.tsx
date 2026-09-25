@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { ArrowRight, ArrowLeft, Download, Search, Palette, Lightbulb, CheckCircle, Calendar, Share2, PenTool } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { ArrowRight, ArrowLeft, Download, Search, Palette, Lightbulb, CheckCircle, Share2, PenTool } from 'lucide-react';
+import { toast } from 'sonner';
 import { Button } from '../components/Button';
 import { Logo } from '../components/Logo';
 import { useLanguage } from '../context/LanguageContext';
@@ -13,7 +13,7 @@ interface QuizProps {
 type Answer = 'A' | 'B' | 'C' | 'D' | null;
 
 export function Quiz({ onNavigate }: QuizProps) {
-  const { t, language, dir } = useLanguage();
+  const { language } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0); // 0 = intro, 1-20 = questions, 21 = results
   const [answers, setAnswers] = useState<Answer[]>(Array(20).fill(null));
 
@@ -76,7 +76,6 @@ export function Quiz({ onNavigate }: QuizProps) {
   if (currentStep === 21) {
     return (
       <QuizResults
-        answers={answers}
         onNavigate={onNavigate}
         getQuizResult={getQuizResult}
       />
@@ -123,14 +122,14 @@ function QuizIntro({ onNext }: { onNext: () => void }) {
           </p>
         </div>
 
-        <div className="ios-card rounded-[2rem] p-8 mb-8">
-          <h2 className="text-gray-900 mb-6">
+        <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8 mb-8 shadow-sm">
+          <h2 className="text-gray-900 mb-6 font-bold text-xl">
             {language === 'en' ? 'What to Expect:' : 'توقع إيه من الاختبار:'}
           </h2>
           <div className="space-y-4">
             <FeatureItem icon={CheckCircle} title={language === 'en' ? '20 carefully designed questions' : '20 سؤال متصممين بعناية'} desc={language === 'en' ? 'Each question assesses different aspects of your work preferences and natural strengths' : 'كل سؤال بيقيم جوانب مختلفة من تفضيلاتك في الشغل ونقاط قوتك الطبيعية'} />
             <FeatureItem icon={CheckCircle} title={language === 'en' ? 'Personalized results' : 'نتايج شخصية'} desc={language === 'en' ? 'Get a detailed breakdown of your alignment with each career path' : 'خد تحليل مفصل لمدى توافقك مع كل مسار مهني'} />
-            <FeatureItem icon={CheckCircle} title={language === 'en' ? 'Downloadable report' : 'تقرير قابل للتحميل'} desc={language === 'en' ? 'Save your results and answers as a PDF or document for future reference' : 'احفظ نتايجك وإجاباتك كملف نصي للرجوع ليه في المستقبل'} />
+            <FeatureItem icon={CheckCircle} title={language === 'en' ? 'Downloadable text report' : 'تقرير نصي قابل للتحميل'} desc={language === 'en' ? 'Save your result summary as a text file for future reference' : 'احفظ نتايجك وإجاباتك كملف نصي للرجوع ليه في المستقبل'} />
             <FeatureItem icon={CheckCircle} title={language === 'en' ? 'Takes about 10 minutes' : 'بياخد حوالي 10 دقايق'} desc={language === 'en' ? 'Answer honestly—there are no right or wrong answers' : 'جاوب بصراحة — مفيش إجابات صح وغلط'} />
           </div>
         </div>
@@ -180,7 +179,7 @@ function QuizQuestion({
   onNext: () => void;
   onPrevious: () => void;
 }) {
-  const { t, language, dir } = useLanguage();
+  const { language, dir } = useLanguage();
 
   // Memoize options to prevent re-shuffling on state updates
   const displayedOptions = useMemo(() => {
@@ -203,7 +202,7 @@ function QuizQuestion({
             </span>
             <span className="text-sm text-gray-600">{Math.round(progress)}%</span>
           </div>
-          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden flex">
+          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden flex" role="progressbar" aria-label={language === 'en' ? 'Quiz progress' : 'تقدم الاختبار'} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}>
             <div
               className="h-full bg-blue-600 transition-all duration-300"
               style={{ width: `${progress}%` }}
@@ -212,16 +211,17 @@ function QuizQuestion({
         </div>
 
         {/* Question */}
-        <div className="ios-card rounded-[2rem] p-8 mb-8">
+        <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8 mb-8 shadow-sm">
           <h2 className="text-gray-900 mb-8 text-xl font-bold tracking-tight">{question.question}</h2>
           <div className="space-y-4">
             {displayedOptions.map((option: any) => (
               <button
                 key={option.value}
                 onClick={() => onAnswer(option.value as Answer)}
+                aria-pressed={selectedAnswer === option.value}
                 className={`w-full text-left rtl:text-right p-6 rounded-2xl border transition-all duration-300 group ${selectedAnswer === option.value
-                  ? 'bg-blue-600 border-transparent shadow-lg shadow-blue-500/25 scale-[1.01]'
-                  : 'bg-white/40 border-black/5 hover:bg-white/80 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]'
+                  ? 'bg-blue-600 border-transparent shadow-lg shadow-blue-500/30 scale-[1.01]'
+                  : 'bg-white/60 border-white/50 hover:bg-white/90 hover:border-blue-200 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]'
                   }`}
               >
                 <div className="flex items-start gap-4">
@@ -234,7 +234,7 @@ function QuizQuestion({
                     )}
                   </div>
                   <div className="flex-1">
-                    <p className={`font-medium text-lg ${selectedAnswer === option.value ? 'text-white' : 'text-gray-900 group-hover:text-black'}`}>
+                    <p className={`font-medium text-lg ${selectedAnswer === option.value ? 'text-white' : 'text-gray-900'}`}>
                       {option.text}
                     </p>
                   </div>
@@ -259,6 +259,7 @@ function QuizQuestion({
             variant="primary"
             color="blue"
             onClick={onNext}
+            disabled={selectedAnswer === null}
             className={selectedAnswer === null ? 'opacity-50 cursor-not-allowed' : ''}
           >
             {step === totalSteps
@@ -272,20 +273,14 @@ function QuizQuestion({
   );
 }
 
-function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; onNavigate: (path: string) => void; getQuizResult: () => any }) {
+function QuizResults({ onNavigate, getQuizResult }: { onNavigate: (path: string) => void; getQuizResult: () => any }) {
   const { t, language, dir } = useLanguage();
   const counts = getQuizResult();
 
-  const getPrimaryPath = () => {
-    if (!counts) return null;
-    const maxCount = Math.max(counts.A, counts.B, counts.C, counts.D);
-    if (counts.C === maxCount) return 'C';
-    if (counts.B === maxCount) return 'B';
-    if (counts.D === maxCount) return 'D';
-    return 'A';
-  };
-
-  const primaryPath = getPrimaryPath();
+  const maxCount = counts ? Math.max(counts.A, counts.B, counts.C, counts.D) : 0;
+  const topPaths = counts ? (['A', 'B', 'C', 'D'] as const).filter(key => counts[key] === maxCount) : [];
+  const primaryPath = topPaths[0] ?? null;
+  const hasTie = topPaths.length > 1;
   const data = quizData[language];
 
   if (!counts || !primaryPath) return null;
@@ -310,9 +305,9 @@ function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; o
     }
   };
 
-  const downloadAsPDF = () => {
+  const downloadTextReport = () => {
     // Re-implemented download logic briefly or rely on text-file generation for robustness
-    const enData = quizData['en'];
+    // Re-implemented download logic briefly or rely on text-file generation for robustness
     const pathNames = { A: 'User Research', B: 'Product Design', C: 'Product Management', D: 'UX Writing' };
 
     let content = `STARTINPRODUCT - CAREER PATH ASSESSMENT RESULTS\n\n`;
@@ -331,9 +326,7 @@ function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; o
     document.body.removeChild(link);
   };
 
-  const handleBookSession = () => {
-    window.open('https://adplist.org/mentors/mohamed-ameen-UjZr', '_blank');
-  };
+
 
   return (
     <div className="min-h-screen" dir={dir}>
@@ -352,19 +345,18 @@ function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; o
           <h1 className="text-gray-900 mb-4">{language === 'en' ? 'Your Results Are Ready!' : 'نتايجك جاهزة!'}</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             {language === 'en'
-              ? "Based on your responses, we've identified your best career path match."
-              : "بناءً على إجاباتك، حددنا أفضل مسار مهني يناسبك."}
+              ? (hasTie ? 'You have more than one strong match. One is highlighted below; compare the full breakdown before choosing.' : 'Based on your responses, we identified your strongest career path match.')
+              : (hasTie ? 'لديك أكثر من مسار قوي. نعرض أحدها بالأسفل؛ قارن التفاصيل قبل الاختيار.' : 'بناءً على إجاباتك، حددنا أقوى مسار مهني يناسبك.')}
           </p>
         </div>
 
         {/* Reuse existing result UI components or simplify for this block */}
         {/* Recommended Path Card */}
-        <div className={`rounded-[2rem] p-8 border mb-8 bg-gradient-to-br shadow-lg ${primaryPath === 'A' ? 'from-green-50 to-white/50 border-green-100' :
-          primaryPath === 'B' ? 'from-purple-50 to-white/50 border-purple-100' :
-            primaryPath === 'C' ? 'from-blue-50 to-white/50 border-blue-100' :
-              'from-rose-50 to-white/50 border-rose-100'
-          }`}>
-          <h2 className="text-gray-900 mb-4 font-bold text-xl">{result.title}</h2>
+        <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8 mb-8 shadow-sm">
+          <h2 className={`mb-4 font-bold text-xl ${primaryPath === 'A' ? 'text-green-700' :
+            primaryPath === 'B' ? 'text-purple-700' :
+              primaryPath === 'C' ? 'text-blue-700' : 'text-rose-700'
+            }`}>{result.title}</h2>
           <p className="text-gray-600 mb-6 font-medium">{result.subtitle}</p>
           <p className="text-gray-600 mb-6 leading-relaxed">{result.description}</p>
           <div className="mb-6">
@@ -372,7 +364,10 @@ function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; o
             <ul className="space-y-2">
               {result.strengths.map((strength: string, index: number) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle size={20} className="flex-shrink-0 mt-0.5 opacity-70" />
+                  <CheckCircle size={20} className={`flex-shrink-0 mt-0.5 ${primaryPath === 'A' ? 'text-green-600' :
+                    primaryPath === 'B' ? 'text-purple-600' :
+                      primaryPath === 'C' ? 'text-blue-600' : 'text-rose-600'
+                    }`} />
                   <span className="text-gray-600">{strength}</span>
                 </li>
               ))}
@@ -384,11 +379,44 @@ function QuizResults({ answers, onNavigate, getQuizResult }: { answers: any[]; o
           </Button>
         </div>
 
+        {/* Score Breakdown */}
+        <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8 mb-8 shadow-sm">
+          <h3 className="text-gray-900 mb-6 font-bold text-xl">
+            {language === 'en' ? 'Detailed Breakdown' : 'تفاصيل النتيجة'}
+          </h3>
+          <div className="space-y-6">
+            {[
+              { id: 'C', label: t('nav.productManagement'), count: counts.C, color: 'bg-blue-500', bg: 'bg-blue-100' },
+              { id: 'B', label: t('nav.productDesign'), count: counts.B, color: 'bg-purple-500', bg: 'bg-purple-100' },
+              { id: 'A', label: t('nav.userResearch'), count: counts.A, color: 'bg-green-500', bg: 'bg-green-100' },
+              { id: 'D', label: t('nav.uxWriting'), count: counts.D, color: 'bg-rose-500', bg: 'bg-rose-100' },
+            ]
+              .sort((a, b) => b.count - a.count)
+              .map((path) => (
+                <div key={path.id}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="flex items-center gap-3">
+                      <div className={`w-3 h-3 rounded-full ${path.color}`} />
+                      <span className="text-gray-800 font-medium">{path.label}</span>
+                    </span>
+                    <span className="font-bold text-gray-900">{path.count} <span className="text-gray-500 text-sm font-normal">/ 20</span></span>
+                  </div>
+                  <div className={`w-full h-3 rounded-full overflow-hidden ${path.bg === 'bg-white' ? 'bg-gray-100' : 'bg-white/50'}`}>
+                    <div
+                      className={`h-full rounded-full transition-all duration-1000 ease-out ${path.color}`}
+                      style={{ width: `${(path.count / 20) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
         {/* Download/Share Actions */}
-        <div className="ios-card rounded-[2rem] p-8 mb-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="outline" color="blue" onClick={downloadAsPDF}>
+        <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8 mb-8 flex flex-col sm:flex-row gap-4 justify-center shadow-sm">
+          <Button variant="outline" color="blue" onClick={downloadTextReport}>
             <Download size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />
-            {language === 'en' ? 'Download Results' : 'تحميل النتيجة'}
+            {language === 'en' ? 'Download text report' : 'تحميل تقرير نصي'}
           </Button>
           <Button variant="outline" color="blue" onClick={handleShare}>
             <Share2 size={20} className={`inline ${dir === 'rtl' ? 'ml-2' : 'mr-2'}`} />

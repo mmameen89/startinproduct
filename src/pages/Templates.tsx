@@ -1,5 +1,5 @@
 import { Button } from '../components/Button';
-import { ArrowLeft, FileText, Download, ExternalLink } from 'lucide-react';
+import { ArrowLeft, FileText, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export function Templates({ onNavigate }: { onNavigate: (path: string) => void }) {
@@ -10,7 +10,7 @@ export function Templates({ onNavigate }: { onNavigate: (path: string) => void }
       back: "Back to Home",
       title: "Templates & Resources",
       description: "A curated collection of essential templates and frameworks to help you excel in your product career.",
-      getTemplate: "Get Template",
+      getTemplate: "Open resource",
       items: [
         {
           title: "Product Requirements Document (PRD)",
@@ -30,7 +30,7 @@ export function Templates({ onNavigate }: { onNavigate: (path: string) => void }
         {
           title: "User Interview Script",
           description: "A structured guide for conducting effective user interviews to gather meaningful qualitative data.",
-          link: "https://dscout.com/people-nerds/user-interview-guide"
+          link: "https://dscout.com/people-nerds"
         },
         {
           title: "Competitor Analysis Framework",
@@ -68,7 +68,7 @@ export function Templates({ onNavigate }: { onNavigate: (path: string) => void }
         {
           title: "سيناريو مقابلات المستخدمين",
           description: "دليل منظم لإجراء مقابلات مستخدمين فعالة لجمع بيانات نوعية ذات معنى.",
-          link: "https://dscout.com/people-nerds/user-interview-guide"
+          link: "https://dscout.com/people-nerds"
         },
         {
           title: "إطار تحليل المنافسين",
@@ -115,28 +115,40 @@ export function Templates({ onNavigate }: { onNavigate: (path: string) => void }
             <div
               key={index}
               className="
-                group relative ios-card rounded-[2rem] p-10
-                transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/80
+                group relative bg-white/40 backdrop-blur-xl border border-white/50 rounded-[32px] p-8
+                transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10
               "
             >
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-blue-50/50 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-blue-100/50">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none rounded-[32px]" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 bg-blue-50 hover:bg-blue-100 transition-colors rounded-2xl flex items-center justify-center mb-6 border border-blue-100">
                   <FileText size={24} className="text-blue-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {template.title}
                 </h3>
-                <p className="text-gray-600 mb-8 text-sm leading-relaxed">
+                <p className="text-gray-600 mb-8 text-sm leading-relaxed flex-grow">
                   {template.description}
                 </p>
-                <a
-                  href={template.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 bg-blue-50/50 px-4 py-2 rounded-full border border-blue-100/50 hover:bg-blue-100/50 transition-all"
-                >
-                  {currentContent.getTemplate} <ExternalLink size={14} className={`inline ${dir === 'rtl' ? 'mr-2' : 'ml-2'}`} />
-                </a>
+
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    variant="secondary"
+                    color="blue"
+                    size="sm"
+                    className="w-full justify-between group-hover:bg-blue-50 transition-colors"
+                  >
+                    <a
+                      href={template.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>{currentContent.getTemplate}</span>
+                      <ExternalLink size={16} className={`text-blue-500 group-hover:text-blue-600 ${dir === 'rtl' ? 'mr-3' : 'ml-3'}`} />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           ))}

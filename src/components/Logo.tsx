@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface LogoProps {
   className?: string;
   size?: number;
@@ -8,6 +6,8 @@ interface LogoProps {
 export function Logo({ className = "", size = 32 }: LogoProps) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       width={size}
       height={size}
       viewBox="0 0 32 32"

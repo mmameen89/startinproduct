@@ -1,0 +1,10 @@
+{
+  "name": "StartInProduct",
+  "short_name": "StartInProduct",
+  "description": "Structured learning paths for product careers.",
+  "start_url": "/en",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#1d4ed8",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

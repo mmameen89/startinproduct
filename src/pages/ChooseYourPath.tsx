@@ -12,13 +12,13 @@ export function ChooseYourPath({ onNavigate }: ChooseYourPathProps) {
   const data = choosePathData[language];
 
   const handleBookSession = () => {
-    window.open('https://adplist.org/mentors/mohamed-ameen-UjZr', '_blank');
+    window.open('https://adplist.org/mentors/mohamed-ameen-UjZr', '_blank', 'noopener,noreferrer');
   };
 
   return (
     <div className="min-h-screen" dir={dir}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             {t('choosePath.title')}

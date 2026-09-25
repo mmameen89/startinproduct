@@ -1,0 +1,31 @@
+/* Missing Tailwind classes for Layout updates */
+
+.top-32 {
+    top: 8rem;
+}
+
+.scroll-mt-32 {
+    scroll-margin-top: 8rem;
+}
+
+.left-\[19px\] {
+    left: 19px;
+}
+
+@media (min-width: 1024px) {
+    .lg\:block {
+        display: block;
+    }
+
+    .lg\:grid-cols-12 {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .lg\:col-span-3 {
+        grid-column: span 3 / span 3;
+    }
+
+    .lg\:col-span-9 {
+        grid-column: span 9 / span 9;
+    }
+}

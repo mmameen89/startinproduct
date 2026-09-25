@@ -25,7 +25,7 @@ export function Mentors({ onNavigate }: MentorsProps) {
   return (
     <div className="min-h-screen" dir={dir}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             {t('mentorsPage.title')}
@@ -41,19 +41,18 @@ export function Mentors({ onNavigate }: MentorsProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mentors.map((mentor) => (
-              <div 
+              <div
                 key={mentor.id}
                 className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
               >
                 <div className="p-8 flex flex-col h-full">
                   {/* Profile Photo */}
                   <div className="flex justify-center mb-6">
-                    <div className={`w-32 h-32 rounded-full overflow-hidden border-4 shadow-lg ${
-                      mentor.accentColor === 'blue' ? 'border-blue-500' :
-                      mentor.accentColor === 'purple' ? 'border-purple-500' :
-                      mentor.accentColor === 'green' ? 'border-green-500' :
-                      'border-rose-500'
-                    }`}>
+                    <div className={`w-32 h-32 rounded-full overflow-hidden border-4 shadow-lg ${mentor.accentColor === 'blue' ? 'border-blue-500' :
+                        mentor.accentColor === 'purple' ? 'border-purple-500' :
+                          mentor.accentColor === 'green' ? 'border-green-500' :
+                            'border-rose-500'
+                      }`}>
                       <ImageWithFallback
                         src={mentor.image}
                         alt={`Profile photo of ${mentor.name}`}
@@ -67,18 +66,17 @@ export function Mentors({ onNavigate }: MentorsProps) {
                     <h2 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h2>
                     <p className="text-gray-600 text-sm">{mentor.title}</p>
                   </div>
-                  
+
                   {/* Specialties */}
                   <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {mentor.specialties.map((specialty, index) => (
-                      <span 
+                      <span
                         key={index}
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          mentor.accentColor === 'blue' ? 'bg-blue-100 text-blue-700' :
-                          mentor.accentColor === 'purple' ? 'bg-purple-100 text-purple-700' :
-                          mentor.accentColor === 'green' ? 'bg-green-100 text-green-700' :
-                          'bg-rose-100 text-rose-700'
-                        }`}
+                        className={`text-xs px-2 py-1 rounded-full ${mentor.accentColor === 'blue' ? 'bg-blue-100 text-blue-700' :
+                            mentor.accentColor === 'purple' ? 'bg-purple-100 text-purple-700' :
+                              mentor.accentColor === 'green' ? 'bg-green-100 text-green-700' :
+                                'bg-rose-100 text-rose-700'
+                          }`}
                       >
                         {specialty}
                       </span>
@@ -92,8 +90,8 @@ export function Mentors({ onNavigate }: MentorsProps) {
 
                   {/* CTAs */}
                   <div className="space-y-4 mt-auto">
-                    <Button 
-                      variant="primary" 
+                    <Button
+                      variant="primary"
                       color={mentor.accentColor}
                       onClick={() => handleBookSession(mentor.adplist)}
                       className="w-full"
@@ -113,7 +111,7 @@ export function Mentors({ onNavigate }: MentorsProps) {
                       >
                         <Linkedin size={18} />
                       </a>
-                      
+
                       <a
                         href={`mailto:${mentor.email}`}
                         className="p-2 bg-white border border-gray-200 rounded-lg text-gray-500 hover:text-blue-600 hover:border-blue-300 transition-colors"
@@ -121,7 +119,7 @@ export function Mentors({ onNavigate }: MentorsProps) {
                       >
                         <Mail size={18} />
                       </a>
-                      
+
                       <a
                         href={mentor.whatsapp}
                         target="_blank"
@@ -147,8 +145,8 @@ export function Mentors({ onNavigate }: MentorsProps) {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             {t('mentorsPage.ctaDesc')}
           </p>
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             color="blue"
             onClick={() => onNavigate('/')}
           >

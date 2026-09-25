@@ -1,4 +1,5 @@
 import { CheckCircle2, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PhaseCardProps {
   phaseNumber: number;
@@ -25,6 +26,8 @@ export function PhaseCard({
   color,
   isOptional = false,
 }: PhaseCardProps) {
+  const { t } = useLanguage();
+
   const colorStyles = {
     blue: {
       border: 'border-blue-200/50',
@@ -58,6 +61,25 @@ export function PhaseCard({
 
   const theme = colorStyles[color];
 
+  // Helper to translate resource type
+  const resourceTypeLabel = (type: string) => {
+    const lowerType = type.toLowerCase();
+    if (lowerType === 'course') return t('paths.common.filters.course');
+    if (lowerType === 'book') return t('paths.common.filters.book');
+    if (lowerType === 'article') return t('paths.common.filters.article');
+    if (lowerType === 'video') return t('paths.common.filters.video');
+    if (lowerType === 'tool') return t('paths.common.filters.tool');
+    if (lowerType === 'community') return t('paths.common.filters.community');
+
+    // Handle combined or specific types loosely
+    if (lowerType.includes('course')) return t('paths.common.filters.course');
+    if (lowerType.includes('article')) return t('paths.common.filters.article');
+    if (lowerType.includes('program')) return t('paths.common.filters.program');
+    if (lowerType.includes('platform')) return t('paths.common.filters.platform');
+
+    return type;
+  };
+
   return (
     <div className={`
       relative overflow-hidden
@@ -72,11 +94,11 @@ export function PhaseCard({
       <div className="relative z-10">
         <div className="flex items-start justify-between mb-6">
           <div className={`${theme.badge} backdrop-blur-md rounded-full px-4 py-1.5 text-sm font-medium border border-white/20`}>
-            Phase {phaseNumber}
+            {t('paths.common.phase')} {phaseNumber}
           </div>
           {isOptional && (
             <span className="bg-gray-100/50 backdrop-blur-sm text-gray-600 text-xs px-3 py-1 rounded-full border border-gray-200/50">
-              Optional
+              {t('paths.common.optional')}
             </span>
           )}
         </div>
@@ -90,7 +112,7 @@ export function PhaseCard({
 
         <div className="space-y-8">
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">Goals</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">{t('paths.common.goals')}</h4>
             <ul className="space-y-3">
               {goals.map((goal, index) => (
                 <li key={index} className="flex items-start gap-3 text-sm text-gray-600 group">
@@ -104,7 +126,7 @@ export function PhaseCard({
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">Topics Covered</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">{t('paths.common.topics')}</h4>
             <div className="flex flex-wrap gap-2">
               {topics.map((topic, index) => (
                 <span
@@ -118,7 +140,7 @@ export function PhaseCard({
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">Key Resources</h4>
+            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider opacity-80">{t('paths.common.resources')}</h4>
             <div className="grid gap-3 sm:grid-cols-2">
               {resources.map((resource, index) => (
                 resource.link ? (
@@ -135,7 +157,7 @@ export function PhaseCard({
                   >
                     <div className="flex justify-between items-start gap-2 mb-2">
                       <span className={`text-[10px] px-2 py-0.5 rounded-full ${theme.badge} border border-white/20`}>
-                        {resource.type}
+                        {resourceTypeLabel(resource.type)}
                       </span>
                       <ExternalLink size={14} className="text-gray-400 group-hover:text-gray-600 transition-colors" />
                     </div>
@@ -150,7 +172,7 @@ export function PhaseCard({
                   >
                     <div className="mb-2">
                       <span className={`text-[10px] px-2 py-0.5 rounded-full ${theme.badge} border border-white/20`}>
-                        {resource.type}
+                        {resourceTypeLabel(resource.type)}
                       </span>
                     </div>
                     <span className="text-sm font-medium text-gray-600">
@@ -164,7 +186,7 @@ export function PhaseCard({
 
           <div className="pt-6 border-t border-gray-200/50">
             <p className="text-sm text-gray-600 flex items-center gap-2">
-              <span className={`font-medium ${theme.text}`}>Suggested Weekly Time:</span>
+              <span className={`font-medium ${theme.text}`}>{t('paths.common.weeklyTime')}</span>
               <span className="bg-gray-100/50 px-2 py-0.5 rounded-md text-gray-700">{weeklyTime}</span>
             </p>
           </div>

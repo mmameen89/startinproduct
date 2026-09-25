@@ -1,90 +1,24 @@
-import { Shield, Lock, Eye, FileText, Mail } from 'lucide-react';
+import { Shield, Lock, Eye, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export function Privacy() {
-  const { dir } = useLanguage();
-  
-  // Last updated date
-  const lastUpdated = "December 12, 2025";
-
+  const { language, dir } = useLanguage();
+  const ar = language === 'ar';
   return (
     <div className="min-h-screen bg-gray-50 py-20 px-4 sm:px-6 lg:px-8" dir={dir}>
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        {/* Header */}
-        <div className="bg-blue-600 px-8 py-12 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-6 backdrop-blur-sm">
-            <Shield className="w-8 h-8 text-white" />
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-          <p className="text-blue-100">Last Updated: {lastUpdated}</p>
+      <article className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <header className="bg-blue-700 px-8 py-12 text-center text-white">
+          <Shield className="w-12 h-12 mx-auto mb-5" aria-hidden="true" />
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{ar ? 'سياسة الخصوصية' : 'Privacy Policy'}</h1>
+          <p className="text-blue-100">{ar ? 'آخر تحديث: 25 سبتمبر 2026' : 'Last updated: September 25, 2026'}</p>
+        </header>
+        <div className="p-8 md:p-12 space-y-9 text-gray-700 leading-relaxed">
+          <section><h2 className="legal-heading"><Lock aria-hidden="true" />{ar ? 'نطاق هذه السياسة' : 'Scope of this policy'}</h2><p>{ar ? 'يوفر StartInProduct مسارات تعلم ومصادر مهنية واختبارًا للمسار المهني. لا ينشئ الموقع حسابات مستخدمين ولا يعالج مدفوعات ولا يخزن إجابات الاختبار.' : 'StartInProduct provides learning paths, career resources, and a career assessment. The website does not create user accounts, process payments, or store assessment answers.'}</p></section>
+          <section><h2 className="legal-heading"><Eye aria-hidden="true" />{ar ? 'البيانات والتواصل' : 'Data and contact'}</h2><p>{ar ? 'نموذج التواصل يفتح تطبيق البريد على جهازك برسالة جاهزة. لا تُرسل البيانات إلى StartInProduct ولا تُخزن على الموقع إلا عندما تختار إرسال الرسالة من تطبيق بريدك. قد يسجل مزود الاستضافة بيانات تقنية أساسية مثل عنوان IP ونوع المتصفح لأغراض الأمان والتشغيل.' : 'The contact form opens your device’s email application with a prepared message. The information is not sent to StartInProduct or stored by this website unless you choose to send it from your email application. The hosting provider may record basic technical information, such as IP address and browser type, for security and operation.'}</p></section>
+          <section><h2 className="legal-heading"><Lock aria-hidden="true" />{ar ? 'الخدمات الخارجية' : 'External services'}</h2><p>{ar ? 'يتضمن الموقع روابط لمصادر تعليمية وLinkedIn وWhatsApp وADPList. تخضع زيارتك لهذه الخدمات لسياسات الخصوصية الخاصة بها. لا نبيع بياناتك الشخصية.' : 'The site links to learning resources, LinkedIn, WhatsApp, and ADPList. Your use of those services is governed by their privacy policies. We do not sell personal information.'}</p></section>
+          <section><h2 className="legal-heading"><Mail aria-hidden="true" />{ar ? 'تواصل معنا' : 'Contact us'}</h2><p>{ar ? 'لأي استفسار عن الخصوصية، راسلنا على' : 'For privacy questions, email'} <a className="text-blue-700 underline" href="mailto:mmameen89@gmail.com">mmameen89@gmail.com</a>.</p></section>
         </div>
-
-        {/* Content */}
-        <div className="p-8 md:p-12 space-y-8 text-gray-600 leading-relaxed">
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <Lock size={24} className="text-blue-600" />
-              Introduction
-            </h2>
-            <p className="mb-4">
-              At StartInProduct, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
-            </p>
-            <p>
-              Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <Eye size={24} className="text-blue-600" />
-              Information We Collect
-            </h2>
-            <p className="mb-4">
-              We may collect information about you in a variety of ways. The information we may collect on the Site includes:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>
-                <strong className="text-gray-900">Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site.
-              </li>
-              <li>
-                <strong className="text-gray-900">Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText size={24} className="text-blue-600" />
-              Use of Your Information
-            </h2>
-            <p className="mb-4">
-              Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 mt-4">
-              <li>Create and manage your account.</li>
-              <li>Compile anonymous statistical data and analysis for use internally or with third parties.</li>
-              <li>Email you regarding your account or order.</li>
-              <li>Enable user-to-user communications.</li>
-              <li>Generate a personal profile about you to make future visits to the Site more personalized.</li>
-              <li>Increase the efficiency and operation of the Site.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <Mail size={24} className="text-blue-600" />
-              Contact Us
-            </h2>
-            <p>
-              If you have questions or comments about this Privacy Policy, please contact us at:
-            </p>
-            <div className="mt-4 bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <p className="font-semibold text-gray-900">StartInProduct</p>
-              <p className="mt-1">Email: mmameen89@gmail.com</p>
-            </div>
-          </section>
-        </div>
-      </div>
+      </article>
     </div>
   );
 }

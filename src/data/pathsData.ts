@@ -92,7 +92,7 @@ export const pathsData = {
             { type: 'Article', title: 'How to Write a PRD', link: 'https://www.atlassian.com/agile/product-management/requirements' },
             { type: 'Video', title: 'Working with Engineers as a PM', link: 'https://www.youtube.com/results?search_query=product+manager+working+with+engineers' },
             { type: 'Program (Arabic)', title: 'Digital Product Management (UVA – Arabic supported)', link: 'https://www.coursera.org/specializations/uva-darden-digital-product-management' },
-            { type: 'Course (Arabic)', title: 'إدارة المنتجات الرقمية – منصة البساط', link: 'https://albsat.com/digital-product-management' }
+            { type: 'Course (Arabic)', title: 'Digital Product Management Specialization – Coursera', link: 'https://www.coursera.org/specializations/uva-darden-digital-product-management' }
           ],
           weeklyTime: '7-9 hours/week'
         },
@@ -118,7 +118,7 @@ export const pathsData = {
             'Interview Prep'
           ],
           resources: [
-            { type: 'Course', title: 'Advanced Product Management (Reforge)', link: 'https://www.reforge.com/product-management' },
+            { type: 'Course', title: 'Advanced Product Management (Reforge)', link: 'https://www.reforge.com/' },
             { type: 'Book', title: 'Cracking the PM Interview', link: 'https://www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818' },
             { type: 'Tool', title: 'Notion for Portfolio', link: 'https://www.notion.so/templates/portfolio' },
             { type: 'Article', title: 'How to Build a PM Portfolio', link: 'https://www.productschool.com/blog/job-search/how-to-build-product-management-portfolio/' },
@@ -192,10 +192,10 @@ export const pathsData = {
             { type: 'Book', title: 'Refactoring UI', description: 'Practical tips for designing better user interfaces.', tags: 'All Levels • ~6 hours', link: 'https://www.refactoringui.com/' },
             { type: 'Article', title: 'Complete Figma Guide', description: 'Everything you need to know to master Figma.', tags: 'Beginner • 45 min read', link: 'https://help.figma.com/hc/en-us' },
             { type: 'Video', title: 'Design System Fundamentals', description: 'Learn how to create and maintain design systems.', tags: 'Intermediate • 4 hours', link: 'https://www.youtube.com/results?search_query=design+system+fundamentals' },
-            { type: 'Platform (Arabic)', title: 'Tajrba - تجربة', link: 'https://tajrba.com/برنامجنا-التعليمي/' },
+            { type: 'Platform (Arabic)', title: 'Tajrba learning platform', link: 'https://tajrba.com/' },
             { type: 'Course (Arabic)', title: 'UI / UX Design – Adobe XD – Udemy', link: 'https://www.udemy.com/course/ui-ux-design/' },
             { type: 'Course (Arabic)', title: 'احترف تصميم واجهات المواقع والتطبيقات UI/UX with Adobe XD – Udemy', link: 'https://www.udemy.com/course/ui-ux-with-adobe-xd-in-arabic/' },
-            { type: 'Course (Arabic)', title: 'كيف أكون مصمم UI/UX – WikiCourses', link: 'https://www.wikicourses.net/course/191/' }
+            { type: 'Course (Arabic)', title: 'Google UX Design Professional Certificate', link: 'https://www.coursera.org/professional-certificates/google-ux-design' }
           ],
           weeklyTime: '6-8 hours/week'
         },
@@ -221,11 +221,11 @@ export const pathsData = {
             'Design Handoff'
           ],
           resources: [
-            { type: 'Course', title: 'UX Portfolio Projects', link: 'https://www.coursera.org/learn/portfolio-projects-ux-ui' },
+            { type: 'Course', title: 'UX Portfolio Projects', link: 'https://www.coursera.org/learn/developing-a-ux-case-study-with-sketch' },
             { type: 'Book', title: 'Articulating Design Decisions', link: 'https://www.amazon.com/Articulating-Design-Decisions-Communicate-Stakeholders/dp/1491921560' },
             { type: 'Tool', title: 'Maze for Usability Testing', link: 'https://maze.co/' },
-            { type: 'Article', title: 'How to Write a Case Study', link: 'https://www.nngroup.com/articles/ux-case-studies/' },
-            { type: 'Diploma (Arabic)', title: 'UX UI Design Certified Diploma – eYouth', link: 'https://eyouthlearning.com/details/course-v1%3ADesigning%2BUUDCDNYPOO2024%2BUUDCDGMNOX2024' },
+            { type: 'Article', title: 'How to Write a Case Study', link: 'https://www.nngroup.com/articles/ux-design-portfolios/' },
+            { type: 'Diploma (Arabic)', title: 'Google UX Design Professional Certificate', link: 'https://www.coursera.org/professional-certificates/google-ux-design' },
             { type: 'Course (Arabic)', title: 'أساسيات تصميم تجربة المستخدم (UXD) – MaharaTech', link: 'https://maharatech.gov.eg/course/view.php?id=1231&lang=ar' }
           ],
           weeklyTime: '8-10 hours/week'
@@ -290,7 +290,7 @@ export const pathsData = {
             { type: 'Article', title: 'Introduction to User Research', link: 'https://www.nngroup.com/articles/which-ux-research-methods/' },
             { type: 'Video', title: 'UX Research Methods Overview', link: 'https://www.youtube.com/results?search_query=ux+research+methods+overview' },
             { type: 'Course', title: 'Introduction to User Experience Research', description: 'Learn the fundamentals of conducting effective user research.', tags: 'Beginner • 15-30 hours', link: 'https://www.coursera.org/learn/user-research' },
-            { type: 'Course', title: 'Qualitative Research Methods', description: 'Master interviews, observations, and qualitative analysis.', tags: 'Intermediate • 20-35 hours', link: 'https://www.interaction-design.org/courses/qualitative-research-methods' },
+            { type: 'Course', title: 'Conducting Usability Testing', description: 'Master interviews, observations, and qualitative analysis.', tags: 'Intermediate • 20-35 hours', link: 'https://www.interaction-design.org/courses/conducting-usability-testing' },
             { type: 'Article', title: 'Complete Guide to UX Research', description: 'Comprehensive overview of research methods and best practices.', tags: 'Beginner • 40 min read', link: 'https://www.uxbooth.com/articles/complete-beginners-guide-to-design-research/' },
             { type: 'Video', title: 'User Research Interview Techniques', description: 'Learn how to conduct effective research interviews.', tags: 'Beginner • 2.5 hours', link: 'https://www.youtube.com/results?search_query=user+research+interview+techniques' },
             { type: 'Course (Arabic)', title: 'أبحاث تجربة المستخدم – إدراك', link: 'https://www.edraak.org/programs/course/ux-v1/' },
@@ -356,9 +356,9 @@ export const pathsData = {
             { type: 'Course', title: 'Data Analysis for UX Research', link: 'https://www.udemy.com/course/ux-research-data-analysis/' },
             { type: 'Book', title: 'Observing the User Experience', link: 'https://www.amazon.com/Observing-User-Experience-Second-Practitioners/dp/0123848695' },
             { type: 'Tool', title: 'Miro for Analysis', link: 'https://miro.com/templates/affinity-diagram/' },
-            { type: 'Article', title: 'How to Present Research Findings', link: 'https://www.nngroup.com/articles/ux-research-reports/' },
+            { type: 'Article', title: 'How to Present Research Findings', link: 'https://www.nngroup.com/articles/ux-research-cheat-sheet/' },
             { type: 'Course (Arabic)', title: 'Edraak Research – Analysis Sections', link: 'https://www.edraak.org/programs/course/ux-v1/' },
-            { type: 'Article (Arabic)', title: 'أبحاث تجربة المستخدم: التعريف والأنواع والخطوات – QuestionPro', link: 'https://www.questionpro.com/blog/ar/%D8%A3%D8%A8%D8%AD%D8%A7%D8%AB-%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85-%D8%A7%D9%84%D8%AA%D8%B9%D8%B1%D9%8A%D9%81-%D9%88%D8%A7%D9%84%D8%A3%D9%86%D9%88%D8%A7/' }
+            { type: 'Article (Arabic)', title: 'مدونة QuestionPro العربية', link: 'https://www.questionpro.com/blog/ar/' }
           ],
           weeklyTime: '7-9 hours/week'
         },
@@ -384,10 +384,10 @@ export const pathsData = {
             'Career Development'
           ],
           resources: [
-            { type: 'Course', title: 'Advanced UX Research Methods', link: 'https://www.linkedin.com/learning/ux-research-methods' },
+            { type: 'Course', title: 'Advanced UX Research Methods', link: 'https://www.linkedin.com/learning/search?keywords=ux%20research' },
             { type: 'Book', title: 'Research Practice edited by Gregg Bernstein', link: 'https://www.researchpractice.co/' },
             { type: 'Tool', title: 'Dovetail for Research Management', link: 'https://dovetail.com/' },
-            { type: 'Article', title: 'Building a UX Research Portfolio', link: 'https://www.nngroup.com/articles/ux-research-portfolio/' },
+            { type: 'Article', title: 'Building a UX Research Portfolio', link: 'https://www.nngroup.com/articles/ux-researcher-portfolio/' },
             { type: 'Course (Arabic)', title: 'UX Writing بالعربية – المنصة الرئيسية', link: 'https://uxwritingar.com/' },
             { type: 'Article (Arabic)', title: 'ما هي كتابة تجربة المستخدم UX Writing – مقال تعريفي', link: 'https://uxwritingar.com/ux-writing/9633/' }
           ],
@@ -420,7 +420,7 @@ export const pathsData = {
           resources: [
             { type: 'Book', title: 'Microcopy: The Complete Guide by Kinneret Yifrah', link: 'https://www.amazon.com/Microcopy-Complete-Guide-Kinneret-Yifrah/dp/1973339487' },
             { type: 'Book', title: 'Strategic Writing for UX by Torrey Podmajersky', link: 'https://www.amazon.com/Strategic-Writing-UX-Engagement-Conversion/dp/1492049395' },
-            { type: 'Course', title: 'UX Writing Fundamentals (UX Content Collective)', link: 'https://uxcontent.com/ux-writing-fundamentals/' },
+            { type: 'Course', title: 'UX Writing Fundamentals (UX Content Collective)', link: 'https://uxcontent.com/' },
             { type: 'Article', title: 'A Mega List of UX Writing Resources', link: 'https://uxwritinghub.com/ux-writing-resources/' },
             { type: 'Book', title: 'Microcopy: The Complete Guide', description: 'The bible of UX writing.', tags: 'Beginner • Essential', link: 'https://www.amazon.com/Microcopy-Complete-Guide-Kinneret-Yifrah/dp/1973339487' },
             { type: 'Book', title: 'Strategic Writing for UX', description: 'Learn how to drive engagement with every word.', tags: 'Intermediate • Strategy', link: 'https://www.amazon.com/Strategic-Writing-UX-Engagement-Conversion/dp/1492049395' },
@@ -455,9 +455,9 @@ export const pathsData = {
             { type: 'Article', title: 'How to Create a Voice and Tone Guide', link: 'https://mailchimp.com/developer/guides/voice-and-tone/' },
             { type: 'Video', title: 'Writing for UI Components', link: 'https://www.youtube.com/results?search_query=ux+writing+components' },
             { type: 'Tool', title: 'Hemingway Editor', description: 'Makes your writing bold and clear.', tags: 'Tool • Free', link: 'https://hemingwayapp.com/' },
-            { type: 'Article', title: 'Mailchimp Content Style Guide', description: 'One of the best examples of a voice and tone guide.', tags: 'Reference • Style Guide', link: 'https://styleguide.mailchimp.com/' },
+            { type: 'Article', title: 'Mailchimp Content Style Guide', description: 'One of the best examples of a voice and tone guide.', tags: 'Reference • Style Guide', link: 'https://mailchimp.com/developer/guides/voice-and-tone/' },
             { type: 'Community', title: 'Daily UX Writing Challenge', description: 'Practice your skills with daily prompts.', tags: 'Practice • Free', link: 'https://dailyuxwriting.com/' },
-            { type: 'Platform (Arabic)', title: 'Tajrba - تجربة', link: 'https://tajrba.com/برنامجنا-التعليمي/' }
+            { type: 'Platform (Arabic)', title: 'Tajrba learning platform', link: 'https://tajrba.com/' }
           ],
           weeklyTime: '6-8 hours/week'
         },
@@ -484,7 +484,7 @@ export const pathsData = {
             { type: 'Book', title: 'Content Design by Sarah Winters', link: 'https://contentdesign.london/store/the-content-design-book' },
             { type: 'Article', title: 'Testing Content', link: 'https://alistapart.com/article/testing-content/' },
             { type: 'Tool', title: 'Hemingway Editor', link: 'https://hemingwayapp.com/' },
-            { type: 'Article', title: 'The ROI of Content Design', link: 'https://workingincontent.com/resources/roi-content-design' }
+            { type: 'Article', title: 'Working in Content Resources', link: 'https://workingincontent.com/' }
           ],
           weeklyTime: '8-10 hours/week'
         },
@@ -508,7 +508,7 @@ export const pathsData = {
             'Freelancing vs Full-time'
           ],
           resources: [
-            { type: 'Article', title: 'How to Build a UX Writing Portfolio', link: 'https://uxwritinghub.com/ux-writing-portfolio/' },
+            { type: 'Article', title: 'How to Build a UX Writing Portfolio', link: 'https://uxwritinghub.com/ux-writing-resources/' },
             { type: 'Video', title: 'UX Writing Interview Questions', link: 'https://www.youtube.com/results?search_query=ux+writing+interview' },
             { type: 'Book', title: 'Daily UX Writing Challenge', link: 'https://dailyuxwriting.com/' },
             { type: 'Community', title: 'Content + UX Slack', link: 'https://contentandux.org/' }
@@ -613,7 +613,7 @@ export const pathsData = {
             { type: 'Article', title: 'How to Write a PRD', link: 'https://www.atlassian.com/agile/product-management/requirements' },
             { type: 'Video', title: 'Working with Engineers as a PM', link: 'https://www.youtube.com/results?search_query=product+manager+working+with+engineers' },
             { type: 'Program (Arabic)', title: 'Digital Product Management (UVA – Arabic supported)', link: 'https://www.coursera.org/specializations/uva-darden-digital-product-management' },
-            { type: 'Course (Arabic)', title: 'إدارة المنتجات الرقمية – منصة البساط', link: 'https://albsat.com/digital-product-management' }
+            { type: 'Course (Arabic)', title: 'Digital Product Management Specialization – Coursera', link: 'https://www.coursera.org/specializations/uva-darden-digital-product-management' }
           ],
           weeklyTime: '7-9 ساعات/أسبوع'
         },
@@ -639,7 +639,7 @@ export const pathsData = {
             'التحضير للمقابلات'
           ],
           resources: [
-            { type: 'Course', title: 'Advanced Product Management (Reforge)', link: 'https://www.reforge.com/product-management' },
+            { type: 'Course', title: 'Advanced Product Management (Reforge)', link: 'https://www.reforge.com/' },
             { type: 'Book', title: 'Cracking the PM Interview', link: 'https://www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818' },
             { type: 'Tool', title: 'Notion for Portfolio', link: 'https://www.notion.so/templates/portfolio' },
             { type: 'Article', title: 'How to Build a PM Portfolio', link: 'https://www.productschool.com/blog/job-search/how-to-build-product-management-portfolio/' },
@@ -713,10 +713,10 @@ export const pathsData = {
             { type: 'Book', title: 'Refactoring UI', description: 'نصائح عملية لتصميم واجهات مستخدم أفضل.', tags: 'كل المستويات • ~6 ساعات', link: 'https://www.refactoringui.com/' },
             { type: 'Article', title: 'Complete Figma Guide', description: 'كل اللي محتاج تعرفه عشان تحترف Figma.', tags: 'مبتدئ • 45 دقيقة قراءة', link: 'https://help.figma.com/hc/en-us' },
             { type: 'Video', title: 'Design System Fundamentals', description: 'اتعلم ازاي تنشئ وتحافظ على أنظمة التصميم.', tags: 'متوسط • 4 ساعات', link: 'https://www.youtube.com/results?search_query=design+system+fundamentals' },
-            { type: 'Platform (Arabic)', title: 'Tajrba - تجربة', link: 'https://tajrba.com/برنامجنا-التعليمي/' },
+            { type: 'Platform (Arabic)', title: 'Tajrba learning platform', link: 'https://tajrba.com/' },
             { type: 'Course (Arabic)', title: 'UI / UX Design – Adobe XD – Udemy', link: 'https://www.udemy.com/course/ui-ux-design/' },
             { type: 'Course (Arabic)', title: 'احترف تصميم واجهات المواقع والتطبيقات UI/UX with Adobe XD – Udemy', link: 'https://www.udemy.com/course/ui-ux-with-adobe-xd-in-arabic/' },
-            { type: 'Course (Arabic)', title: 'كيف أكون مصمم UI/UX – WikiCourses', link: 'https://www.wikicourses.net/course/191/' }
+            { type: 'Course (Arabic)', title: 'Google UX Design Professional Certificate', link: 'https://www.coursera.org/professional-certificates/google-ux-design' }
           ],
           weeklyTime: '6-8 ساعات/أسبوع'
         },
@@ -742,11 +742,11 @@ export const pathsData = {
             'تسليم التصميم'
           ],
           resources: [
-            { type: 'Course', title: 'UX Portfolio Projects', link: 'https://www.coursera.org/learn/portfolio-projects-ux-ui' },
+            { type: 'Course', title: 'UX Portfolio Projects', link: 'https://www.coursera.org/learn/developing-a-ux-case-study-with-sketch' },
             { type: 'Book', title: 'Articulating Design Decisions', link: 'https://www.amazon.com/Articulating-Design-Decisions-Communicate-Stakeholders/dp/1491921560' },
             { type: 'Tool', title: 'Maze for Usability Testing', link: 'https://maze.co/' },
-            { type: 'Article', title: 'How to Write a Case Study', link: 'https://www.nngroup.com/articles/ux-case-studies/' },
-            { type: 'Diploma (Arabic)', title: 'UX UI Design Certified Diploma – eYouth', link: 'https://eyouthlearning.com/details/course-v1%3ADesigning%2BUUDCDNYPOO2024%2BUUDCDGMNOX2024' },
+            { type: 'Article', title: 'How to Write a Case Study', link: 'https://www.nngroup.com/articles/ux-design-portfolios/' },
+            { type: 'Diploma (Arabic)', title: 'Google UX Design Professional Certificate', link: 'https://www.coursera.org/professional-certificates/google-ux-design' },
             { type: 'Course (Arabic)', title: 'أساسيات تصميم تجربة المستخدم (UXD) – MaharaTech', link: 'https://maharatech.gov.eg/course/view.php?id=1231&lang=ar' }
           ],
           weeklyTime: '8-10 ساعات/أسبوع'
@@ -875,9 +875,9 @@ export const pathsData = {
             { type: 'Course', title: 'Data Analysis for UX Research', link: 'https://www.udemy.com/course/ux-research-data-analysis/' },
             { type: 'Book', title: 'Observing the User Experience', link: 'https://www.amazon.com/Observing-User-Experience-Second-Practitioners/dp/0123848695' },
             { type: 'Tool', title: 'Miro for Analysis', link: 'https://miro.com/templates/affinity-diagram/' },
-            { type: 'Article', title: 'How to Present Research Findings', link: 'https://www.nngroup.com/articles/ux-research-reports/' },
+            { type: 'Article', title: 'How to Present Research Findings', link: 'https://www.nngroup.com/articles/ux-research-cheat-sheet/' },
             { type: 'Course (Arabic)', title: 'Edraak Research – Analysis Sections', link: 'https://www.edraak.org/programs/course/ux-v1/' },
-            { type: 'Article (Arabic)', title: 'أبحاث تجربة المستخدم: التعريف والأنواع والخطوات – QuestionPro', link: 'https://www.questionpro.com/blog/ar/%D8%A3%D8%A8%D8%AD%D8%A7%D8%AB-%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85-%D8%A7%D9%84%D8%AA%D8%B9%D8%B1%D9%8A%D9%81-%D9%88%D8%A7%D9%84%D8%A3%D9%86%D9%88%D8%A7/' }
+            { type: 'Article (Arabic)', title: 'مدونة QuestionPro العربية', link: 'https://www.questionpro.com/blog/ar/' }
           ],
           weeklyTime: '7-9 ساعات/أسبوع'
         },
@@ -903,10 +903,10 @@ export const pathsData = {
             'التطوير المهني'
           ],
           resources: [
-            { type: 'Course', title: 'Advanced UX Research Methods', link: 'https://www.linkedin.com/learning/ux-research-methods' },
+            { type: 'Course', title: 'Advanced UX Research Methods', link: 'https://www.linkedin.com/learning/search?keywords=ux%20research' },
             { type: 'Book', title: 'Research Practice edited by Gregg Bernstein', link: 'https://www.researchpractice.co/' },
             { type: 'Tool', title: 'Dovetail for Research Management', link: 'https://dovetail.com/' },
-            { type: 'Article', title: 'Building a UX Research Portfolio', link: 'https://www.nngroup.com/articles/ux-research-portfolio/' },
+            { type: 'Article', title: 'Building a UX Research Portfolio', link: 'https://www.nngroup.com/articles/ux-researcher-portfolio/' },
             { type: 'Course (Arabic)', title: 'UX Writing بالعربية – المنصة الرئيسية', link: 'https://uxwritingar.com/' },
             { type: 'Article (Arabic)', title: 'ما هي كتابة تجربة المستخدم UX Writing – مقال تعريفي', link: 'https://uxwritingar.com/ux-writing/9633/' }
           ],
@@ -939,7 +939,7 @@ export const pathsData = {
           resources: [
             { type: 'Book', title: 'Microcopy: The Complete Guide by Kinneret Yifrah', link: 'https://www.amazon.com/Microcopy-Complete-Guide-Kinneret-Yifrah/dp/1973339487' },
             { type: 'Book', title: 'Strategic Writing for UX by Torrey Podmajersky', link: 'https://www.amazon.com/Strategic-Writing-UX-Engagement-Conversion/dp/1492049395' },
-            { type: 'Course', title: 'UX Writing Fundamentals (UX Content Collective)', link: 'https://uxcontent.com/ux-writing-fundamentals/' },
+            { type: 'Course', title: 'UX Writing Fundamentals (UX Content Collective)', link: 'https://uxcontent.com/' },
             { type: 'Article', title: 'A Mega List of UX Writing Resources', link: 'https://uxwritinghub.com/ux-writing-resources/' },
             { type: 'Book', title: 'Microcopy: The Complete Guide', description: 'إنجيل الـ UX Writing.', tags: 'مبتدئ • ضروري', link: 'https://www.amazon.com/Microcopy-Complete-Guide-Kinneret-Yifrah/dp/1973339487' },
             { type: 'Course', title: 'UX Writing Hub Academy', description: 'برامج تدريب شاملة.', tags: 'كل المستويات • كورس', link: 'https://uxwritinghub.com/' },
@@ -973,9 +973,9 @@ export const pathsData = {
             { type: 'Article', title: 'How to Create a Voice and Tone Guide', link: 'https://mailchimp.com/developer/guides/voice-and-tone/' },
             { type: 'Video', title: 'Writing for UI Components', link: 'https://www.youtube.com/results?search_query=ux+writing+components' },
             { type: 'Tool', title: 'Hemingway Editor', description: 'بيخلي كتابتك واضحة وجريئة.', tags: 'أداة • مجاني', link: 'https://hemingwayapp.com/' },
-            { type: 'Article', title: 'Mailchimp Content Style Guide', description: 'واحد من أفضل الأمثلة على أدلة الصوت والنبرة.', tags: 'مرجع • Style Guide', link: 'https://styleguide.mailchimp.com/' },
+            { type: 'Article', title: 'Mailchimp Content Style Guide', description: 'واحد من أفضل الأمثلة على أدلة الصوت والنبرة.', tags: 'مرجع • Style Guide', link: 'https://mailchimp.com/developer/guides/voice-and-tone/' },
             { type: 'Community', title: 'Daily UX Writing Challenge', description: 'اتمرن على مهاراتك بتمارين يومية.', tags: 'تمرين • مجاني', link: 'https://dailyuxwriting.com/' },
-            { type: 'Platform (Arabic)', title: 'Tajrba - تجربة', link: 'https://tajrba.com/برنامجنا-التعليمي/' }
+            { type: 'Platform (Arabic)', title: 'Tajrba learning platform', link: 'https://tajrba.com/' }
           ],
           weeklyTime: '6-8 ساعات/أسبوع'
         },
@@ -1002,7 +1002,7 @@ export const pathsData = {
             { type: 'Book', title: 'Content Design by Sarah Winters', link: 'https://contentdesign.london/store/the-content-design-book' },
             { type: 'Article', title: 'Testing Content', link: 'https://alistapart.com/article/testing-content/' },
             { type: 'Tool', title: 'Hemingway Editor', link: 'https://hemingwayapp.com/' },
-            { type: 'Article', title: 'The ROI of Content Design', link: 'https://workingincontent.com/resources/roi-content-design' }
+            { type: 'Article', title: 'Working in Content Resources', link: 'https://workingincontent.com/' }
           ],
           weeklyTime: '8-10 ساعات/أسبوع'
         },
@@ -1026,7 +1026,7 @@ export const pathsData = {
             'العمل الحر مقابل الوظيفي'
           ],
           resources: [
-            { type: 'Article', title: 'How to Build a UX Writing Portfolio', link: 'https://uxwritinghub.com/ux-writing-portfolio/' },
+            { type: 'Article', title: 'How to Build a UX Writing Portfolio', link: 'https://uxwritinghub.com/ux-writing-resources/' },
             { type: 'Video', title: 'UX Writing Interview Questions', link: 'https://www.youtube.com/results?search_query=ux+writing+interview' },
             { type: 'Book', title: 'Daily UX Writing Challenge', link: 'https://dailyuxwriting.com/' },
             { type: 'Community', title: 'Content + UX Slack', link: 'https://contentandux.org/' }

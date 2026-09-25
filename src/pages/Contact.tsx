@@ -1,179 +1,83 @@
 import { useState } from 'react';
-import { Mail, CheckCircle } from 'lucide-react';
+import { Mail, MessageCircle, ExternalLink } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 
-interface ContactProps {
-  onNavigate: (path: string) => void;
-}
+interface ContactProps { onNavigate: (path: string) => void; }
 
 export function Contact({ onNavigate }: ContactProps) {
-  const { t, dir } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    path: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { t, language, dir } = useLanguage();
+  const [formData, setFormData] = useState({ name: '', email: '', path: '', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: '', email: '', path: '', message: '' });
-      setIsSubmitted(false);
-    }, 3000);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const subject = encodeURIComponent(`StartInProduct inquiry: ${formData.path || 'General'} — ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPath: ${formData.path}\n\n${formData.message}`);
+    window.location.href = `mailto:mmameen89@gmail.com?subject=${subject}&body=${body}`;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(current => ({ ...current, [event.target.name]: event.target.value }));
   };
 
   return (
     <div dir={dir}>
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Mail size={32} className="text-blue-600" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                {t('contact.title')}
-              </h1>
-              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                {t('contact.subtitle')}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"><Mail size={32} className="text-blue-700" aria-hidden="true" /></div>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">{t('contact.title')}</h1>
+            <p className="text-gray-700 mb-8 text-lg leading-relaxed">{t('contact.subtitle')}</p>
+            <div className="mt-10 space-y-4">
+              <p className="text-gray-900 font-bold">{t('contact.direct')}</p>
+              <a href="mailto:mmameen89@gmail.com" className="min-h-11 flex items-center gap-3 text-gray-700 hover:text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600 rounded-lg">
+                <span className="w-11 h-11 bg-blue-50 rounded-lg flex items-center justify-center text-blue-700"><Mail size={20} aria-hidden="true" /></span>
+                <span dir="ltr">mmameen89@gmail.com</span>
+              </a>
+              <a href="https://wa.me/201067780600" target="_blank" rel="noopener noreferrer" className="min-h-11 flex items-center gap-3 text-gray-700 hover:text-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-700 rounded-lg">
+                <span className="w-11 h-11 bg-green-50 rounded-lg flex items-center justify-center text-green-700"><MessageCircle size={20} aria-hidden="true" /></span>
+                <span dir="ltr">WhatsApp: +20 106 778 0600</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="bg-white shadow-xl rounded-2xl p-6 sm:p-8 border border-gray-100">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <p className="text-sm text-gray-600 bg-blue-50 rounded-xl p-4">
+                {language === 'en' ? 'Submitting opens your email app with this message prepared. Review it, then press Send in your email app.' : 'عند المتابعة سيفتح تطبيق البريد الإلكتروني والرسالة جاهزة. راجعها ثم اضغط إرسال من تطبيق البريد.'}
               </p>
-
-              {/* Alternative Contact Methods */}
-              <div className="mt-12">
-                <p className="text-gray-900 font-medium mb-4">{t('contact.direct')}</p>
-                <div className="flex flex-col gap-4">
-                  <a
-                    href="mailto:mmameen89@gmail.com"
-                    className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
-                      <Mail size={20} />
-                    </div>
-                    <span>mmameen89@gmail.com</span>
-                  </a>
-                  <a
-                    href="https://wa.me/201067780600"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-600 hover:text-green-600 transition-colors"
-                  >
-                    <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center text-green-600">
-                      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
-                    </div>
-                    <span>WhatsApp: +20 106 778 0600</span>
-                  </a>
-                </div>
+              <div>
+                <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">{t('contact.form.name')} *</label>
+                <input id="name" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
               </div>
-            </div>
-
-            <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle size={32} className="text-green-600" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('contact.success.title')}</h2>
-                  <p className="text-gray-600 mb-8">
-                    {t('contact.success.desc')}
-                  </p>
-                  <Button variant="primary" color="green" onClick={() => onNavigate('/')}>
-                    {t('contact.success.back')}
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                      {t('contact.form.name')} *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                      placeholder={t('contact.form.name')}
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                      {t('contact.form.email')} *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  {/* Path Selection */}
-                  <div>
-                    <label htmlFor="path" className="block text-sm font-medium text-gray-900 mb-2">
-                      {t('contact.form.path')} *
-                    </label>
-                    <select
-                      id="path"
-                      name="path"
-                      value={formData.path}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all bg-white"
-                    >
-                      <option value="">{t('contact.form.selectPath')}</option>
-                      <option value="product-management">{t('nav.productManagement')}</option>
-                      <option value="product-design">{t('nav.productDesign')}</option>
-                      <option value="user-research">{t('nav.userResearch')}</option>
-                      <option value="general">{t('contact.form.general')}</option>
-                    </select>
-                  </div>
-
-                  {/* Message Field */}
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
-                      {t('contact.form.message')} *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
-                      placeholder="..."
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <Button type="submit" variant="primary" color="blue" className="w-full justify-center">
-                    {t('contact.form.submit')}
-                  </Button>
-                </form>
-              )}
-            </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">{t('contact.form.email')} *</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+              </div>
+              <div>
+                <label htmlFor="path" className="block text-sm font-bold text-gray-900 mb-2">{t('contact.form.path')} *</label>
+                <select id="path" name="path" value={formData.path} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                  <option value="">{t('contact.form.selectPath')}</option>
+                  <option value="Product Management">{t('nav.productManagement')}</option>
+                  <option value="Product Design">{t('nav.productDesign')}</option>
+                  <option value="User Research">{t('nav.userResearch')}</option>
+                  <option value="UX Writing">{t('nav.uxWriting')}</option>
+                  <option value="General inquiry">{t('contact.form.general')}</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">{t('contact.form.message')} *</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required minLength={10} rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 resize-y" />
+              </div>
+              <Button type="submit" variant="primary" color="blue" className="w-full min-h-12">
+                <ExternalLink size={18} aria-hidden="true" className={dir === 'rtl' ? 'ml-2' : 'mr-2'} />
+                {language === 'en' ? 'Open email app' : 'فتح تطبيق البريد'}
+              </Button>
+              <p className="text-xs text-gray-600 text-center">
+                {language === 'en' ? 'Your details are not stored by this website. ' : 'لا يخزن هذا الموقع بياناتك. '}
+                <button type="button" onClick={() => onNavigate('/privacy')} className="text-blue-700 underline underline-offset-2 min-h-6">{t('footer.privacyPolicy')}</button>
+              </p>
+            </form>
           </div>
         </div>
       </section>

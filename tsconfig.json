@@ -1,0 +1,78 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "sonner@2.0.3": [
+                "node_modules/sonner"
+            ],
+            "lucide-react@0.487.0": [
+                "node_modules/lucide-react"
+            ],
+            "vaul@1.1.2": [
+                "node_modules/vaul"
+            ],
+            "recharts@2.15.2": [
+                "node_modules/recharts"
+            ],
+            "react-resizable-panels@2.1.7": [
+                "node_modules/react-resizable-panels"
+            ],
+            "react-hook-form@7.55.0": [
+                "node_modules/react-hook-form"
+            ],
+            "react-day-picker@8.10.1": [
+                "node_modules/react-day-picker"
+            ],
+            "next-themes@0.4.6": [
+                "node_modules/next-themes"
+            ],
+            "input-otp@1.4.2": [
+                "node_modules/input-otp"
+            ],
+            "embla-carousel-react@8.6.0": [
+                "node_modules/embla-carousel-react"
+            ],
+            "cmdk@1.1.1": [
+                "node_modules/cmdk"
+            ],
+            "class-variance-authority@0.7.1": [
+                "node_modules/class-variance-authority"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "src/supabase/functions"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}
